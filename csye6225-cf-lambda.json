@@ -21,23 +21,6 @@
         "Timeout": 10
       }
     },
-    "PasswordResetSNSTopic": {
-      "Type": "AWS::SNS::Topic",
-      "Properties": {
-        "TopicName": "password_reset",
-        "Subscription": [
-          {
-            "Endpoint": {
-              "Fn::GetAtt": [
-                "LambdaEmailApplication",
-                "Arn"
-              ]
-            },
-            "Protocol": "lambda"
-          }
-        ]
-      }
-    },
     "LambdaInvokePermission": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
