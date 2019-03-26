@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "aws-sdk": "^2.429.0"
+  },
+  "scripts": {
+    "test": "echo 'NO TEST NEEDED'"
   }
 }
