@@ -29,8 +29,11 @@ jobs:
                 name: Install awscli
                 command: sudo pip install awscli
             - run:
+                  name: cd myLambda
+                  command: cd myLambda
+            - run:
                 name: zip project
-                command: zip -r myLambda.zip myLambda
+                command: zip -r myLambda.zip *
             - run:
                 name: Upload to S3 Bucket
                 command: aws s3 mv myLambda.zip s3://${BUCKET_NAME}/myLambda.zip
