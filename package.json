@@ -1,0 +1,7 @@
+{
+  "name": "csye6225-spring2019-lambda",
+  "version": "1.0.0",
+  "dependencies": {
+    "aws-sdk": "^2.429.0"
+  }
+}
