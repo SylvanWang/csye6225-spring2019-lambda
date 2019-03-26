@@ -36,9 +36,6 @@ jobs:
                 command: zip -r myLambda.zip index.js package.json
             - run:
                 name: Amazon Lambda
-                command: aws --region us-east-1 lambda update-function-code --function-name myLambdaFunction --zip-file"fileb://myLambda.zip"
-            - run:
-                name: Amazon Lambda
                 command: aws --region us-east-1 lambda update-function-code --function-name myLambdaFunction --zip-file fileb://myLambda.zip
 
 
