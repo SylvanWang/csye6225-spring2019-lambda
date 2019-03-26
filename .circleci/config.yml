@@ -1,0 +1,41 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+    build:
+        docker:
+          - image: circleci/node:7.10
+        working_directory: ~/repo/webapp
+
+        steps:
+            - checkout
+            - restore_cache:
+                keys:
+                    - v1-dependencies-{{ checksum "package.json" }}
+                    - v1-dependencies-
+            - run: yarn install
+
+            - save_cache:
+                paths:
+                    - node_modules
+                key: v1-dependencies-{{ checksum "package.json" }}
+            - run: yarn test
+            - run:
+                name: Install packages
+                command: sudo apt-get install wget zip unzip && sudo apt-get install python-dev && sudo apt-get install python-pip -y
+            - run:
+                name: Install awscli
+                command: sudo pip install awscli
+            - run:
+                name: zip project
+                command: zip -r myLambda.zip * .[^.]*
+            - run:
+                name: Upload to S3 Bucket
+                command: aws s3 mv myLambda.zip s3://${BUCKET_NAME}/myLambda.zip
+            - run:
+                name: Amazon Lambda
+                command: aws --region us-east-1 lambda update-function-code --function-name myLambdaFunction --s3-bucket ${BUCKET_NAME} --s3-key myLambda.zip
+
+
