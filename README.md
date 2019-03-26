@@ -25,7 +25,7 @@
 </tr>
 <tr>
 <td>Yichuan Jiang</td>
-<td>001813365</td>
+<td>001813365</td>     
 <td><a href="mailto:jiang.yic@husky.neu.edu">jiang.yic@husky.neu.edu</a></td>
 </tr>
 </tbody>
