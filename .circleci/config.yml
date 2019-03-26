@@ -29,7 +29,10 @@ jobs:
                 name: Install awscli
                 command: sudo pip install awscli
             - run:
+                name: zip project
+                command: zip -r myLambda.zip myLambda
+            - run:
                 name: Amazon Lambda
-                command: aws --region us-east-1 lambda update-function-code --function-name myLambdaFunction --zip-file myLambda
+                command: aws --region us-east-1 lambda update-function-code --function-name myLambdaFunction --zip-file myLambda.zip
 
 
