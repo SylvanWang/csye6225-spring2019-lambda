@@ -7,7 +7,7 @@ jobs:
     build:
         docker:
           - image: circleci/node:7.10
-        working_directory: ~/repo/webapp
+        working_directory: ~/repo/myLambda
 
         steps:
             - checkout
