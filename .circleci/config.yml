@@ -7,7 +7,7 @@ jobs:
     build:
         docker:
           - image: circleci/node:7.10
-        working_directory: ~/repo/webapp
+        working_directory: ~/repo/myLambda
 
         steps:
             - checkout
@@ -28,9 +28,6 @@ jobs:
             - run:
                 name: Install awscli
                 command: sudo pip install awscli
-            - run:
-                  name: cd myLambda
-                  command: zip -r myLambda.zip myLambda
             - run:
                 name: zip project
                 command: zip -r myLambda.zip index.js package.json
