@@ -29,11 +29,8 @@ jobs:
                 name: Install awscli
                 command: sudo pip install awscli
             - run:
-                  name: cd myLambda
-                  command: cd myLambda
-            - run:
                 name: zip project
-                command: zip -r myLambda.zip index.js package.json
+                command: zip -r myLambda.zip myLambda/index.js  myLambda/package.json
             - run:
                 name: Amazon Lambda
                 command: aws --region us-east-1 lambda update-function-code --function-name passwordResetService --zip-file fileb://myLambda.zip
