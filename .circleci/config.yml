@@ -29,9 +29,6 @@ jobs:
                 name: Install awscli
                 command: sudo pip install awscli
             - run:
-                  name: cd myLambda
-                  command: zip -r myLambda.zip myLambda
-            - run:
                 name: zip project
                 command: zip -r myLambda.zip index.js package.json
             - run:
