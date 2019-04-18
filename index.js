@@ -20,7 +20,7 @@ exports.handler = (event, context) => {
                 Item: {
                     id: { S: email },
                     token: { S: context.awsRequestId },
-                    ttl: { N: (Math.floor(Date.now() / 1000) + 1200).toString() }
+                    ttl: { N: (Math.floor(Date.now() / 1000)).toString() }
                 }
             };
             dynamoDB.putItem(putItemObject, () => {});
